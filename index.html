@@ -3,356 +3,260 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Repartos Express – Demo Funcional Mejorada</title>
+<title>Repartos Express – DEMO Totalmente Funcional</title>
 <style>
-  :root{--bg:#0f172a;--panel:#111827;--muted:#94a3b8;--accent:#22c55e;--accent-2:#60a5fa;--danger:#ef4444;--text:#e5e7eb;--card:#0b1220;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:14px}
-  *{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial; background:linear-gradient(180deg,#071127 0%, #051023 100%);color:var(--text);display:flex;flex-direction:column}
-  .wrap{max-width:1100px;margin:18px auto;padding:12px}
-  header{display:flex;align-items:center;gap:12px}
-  .logo{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;font-weight:900;color:#052e16;background:linear-gradient(135deg,var(--accent),#16a34a)}
-  h1{margin:0;font-size:1.15rem}
-  .subtitle{color:var(--muted);font-size:.9rem}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border:1px solid rgba(255,255,255,.06);padding:14px;border-radius:12px;margin-top:12px}
-  label{display:block;color:var(--muted);font-size:.9rem;margin-top:8px}
-  input,textarea,select,button{font-size:1rem}
-  input,textarea,select{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:#081020;color:var(--text)}
-  .row{display:flex;gap:12px}
-  .col{flex:1}
-  .btn{display:inline-block;padding:10px 12px;border-radius:8px;border:none;cursor:pointer}
-  .btn.primary{background:linear-gradient(135deg,var(--accent-2),#2563eb);color:#051329}
-  .btn.success{background:linear-gradient(135deg,var(--accent),#16a34a);color:#052e16}
-  .btn.warn{background:linear-gradient(135deg,var(--danger),#d97706);color:#220a00}
-  .small{font-size:.85rem;color:var(--muted)}
-  .hidden{display:none}
-  .account-field{display:flex;gap:8px;align-items:center}
-  .muted{color:var(--muted)}
-  .menu-grid{display:grid;grid-template-columns:1fr;gap:12px}
-  @media(min-width:900px){.menu-grid{grid-template-columns:1fr 380px}}
-  .card-scroll{max-height:420px;overflow:auto}
-  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);}
-  .share-img{width:100%;height:160px;display:grid;place-items:center;background:linear-gradient(180deg,#071127,#04101b);border-radius:8px;color:var(--muted)}
-  .notice{background:rgba(0,0,0,0.25);padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,.04)}
+:root{--bg:#0f172a;--panel:#111827;--muted:#94a3b8;--accent:#22c55e;--accent-2:#60a5fa;--danger:#ef4444;--text:#e5e7eb;--card:#0b1220;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:14px}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial; background:linear-gradient(180deg,#071127 0%, #051023 100%);color:var(--text);display:flex;flex-direction:column}
+.wrap{max-width:1100px;margin:18px auto;padding:12px}
+header{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;font-weight:900;color:#052e16;background:linear-gradient(135deg,var(--accent),#16a34a)}
+h1{margin:0;font-size:1.15rem}
+.subtitle{color:var(--muted);font-size:.9rem}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border:1px solid rgba(255,255,255,.06);padding:14px;border-radius:12px;margin-top:12px}
+label{display:block;color:var(--muted);font-size:.9rem;margin-top:8px}
+input,textarea,select,button{font-size:1rem}
+input,textarea,select{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:#081020;color:var(--text)}
+.row{display:flex;gap:12px}
+.col{flex:1}
+.btn{display:inline-block;padding:10px 12px;border-radius:8px;border:none;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,var(--accent-2),#2563eb);color:#051329}
+.btn.success{background:linear-gradient(135deg,var(--accent),#16a34a);color:#052e16}
+.btn.warn{background:linear-gradient(135deg,var(--danger),#d97706);color:#220a00}
+.small{font-size:.85rem;color:var(--muted)}
+.hidden{display:none}
+.account-field{display:flex;gap:8px;align-items:center}
+.muted{color:var(--muted)}
+.menu-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:900px){.menu-grid{grid-template-columns:1fr 380px}}
+.card-scroll{max-height:420px;overflow:auto}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);}
+.share-img{width:100%;height:160px;display:grid;place-items:center;background:linear-gradient(180deg,#071127,#04101b);border-radius:8px;color:var(--muted)}
+.notice{background:rgba(0,0,0,0.25);padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,.04)}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <div class="logo">RX</div>
-  <div>
-    <h1>Repartos Express — DEMO FUNCIONAL</h1>
-    <div class="subtitle">Pruebas simuladas: pagos y suscripciones simuladas. Úsalo solo para testing.</div>
-  </div>
+<div class="logo">RX</div>
+<div>
+<h1>Repartos Express — DEMO Totalmente Funcional</h1>
+<div class="subtitle">Pruebas simuladas: pagos y suscripciones simuladas.</div>
+</div>
 </header>
 
 <!-- LOGIN / REGISTER -->
 <div id="view-auth" class="card">
-  <div class="row">
-    <div class="col">
-      <h2>Iniciar sesión</h2>
-      <label>Correo</label>
-      <input id="login-email" placeholder="correo@ejemplo.com">
-      <label>Contraseña</label>
-      <div class="account-field">
-        <input id="login-pass" type="password" placeholder="Contraseña">
-        <button type="button" id="toggle-login-pass" class="btn">👁</button>
-      </div>
-      <div style="margin-top:10px">
-        <button id="btn-login" class="btn success">Entrar</button>
-        <button id="btn-admin-open" class="btn primary">Panel Admin</button>
-      </div>
-      <p class="small" style="margin-top:8px">¿No tienes cuenta? <button id="btn-show-register" class="btn" style="padding:4px 8px">Regístrate</button></p>
-      <div id="login-msg" class="small muted"></div>
-    </div>
-    <div class="col">
-      <h2>Registro Cliente</h2>
-      <label>Nombre completo</label><input id="r-name" placeholder="Nombre completo">
-      <div class="row"><div class="col"><label>Edad</label><input id="r-age" type="number" placeholder="Edad"></div><div class="col"><label>Teléfono</label><input id="r-phone" placeholder="55XXXXXXXX"></div></div>
-      <label>Correo</label><input id="r-email" placeholder="correo@ejemplo.com">
-      <label>Contraseña</label><input id="r-pass" type="password" placeholder="Contraseña">
-      <label>Estado</label>
-      <select id="r-state"><option value="Coyote">Coyote</option><option value="Tepo">Tepo</option><option value="Huehuetoca">Huehuetoca</option></select>
-      <label>Código postal</label><input id="r-zip" placeholder="Código postal">
-      <label>Ciudad</label><input id="r-city" readonly placeholder="Se autocompleta">
-      <label>Dirección principal</label><textarea id="r-address" rows="2" placeholder="Calle, número, colonia"></textarea>
-      <label>Foto de perfil</label><input id="r-photo" type="file" accept="image/*">
-      <div style="margin-top:8px"><button id="btn-register" class="btn success">Crear cuenta (Simulado)</button></div>
-      <div class="small muted" style="margin-top:8px">Puedes agregar más direcciones después y cambiar la principal. Los pagos son simulados en esta demo.</div>
-    </div>
-  </div>
-
-  <hr style="border:none;border-top:1px solid rgba(255,255,255,.03);margin:12px 0">
-
-  <div>
-    <h3>Registro Repartidor (Suscripción $10 simulado)</h3>
-    <div class="row">
-      <div class="col">
-        <label>Nombre repartidor</label><input id="d-name" placeholder="Nombre repartidor">
-        <label>Teléfono</label><input id="d-phone" placeholder="55XXXXXXXX">
-        <label>Vehículo</label><input id="d-vehicle" placeholder="Moto / Auto - Modelo">
-        <label>Zonas (separa por comas)</label><input id="d-zones" placeholder="Coyote, Tepo">
-        <label>Cuenta para cobrar (CLABE/tarjeta)</label><input id="d-bank" placeholder="CLABE o tarjeta">
-        <label>Productos que reparte</label><input id="d-products" placeholder="Comida, Paquetes">
-        <div style="margin-top:10px"><button id="btn-register-delivery" class="btn primary">Simular pago $10 y Registrar repartidor</button></div>
-      </div>
-      <div class="col">
-        <div class="card notice">
-          <strong>Términos - Suscripción (demo)</strong>
-          <p class="small muted">Al simular la suscripción aceptas los términos. En producción deberás firmar contrato real que deslinde responsabilidades (accidentes, pagos). Esta demo no procesa dinero real.</p>
-        </div>
-        <div style="margin-top:10px">
-          <strong>Cuenta visible (propietario)</strong>
-          <div class="account-field" style="margin-top:6px">
-            <input id="owner-account" type="password" value="5579100283327458" readonly>
-            <button id="toggle-owner" class="btn">👁</button>
-          </div>
-          <p class="small muted">Presiona el ojo para mostrar la cuenta y compartirla con quien deba pagar.</p>
-        </div>
-        <div style="margin-top:12px">
-          <strong>Imagen de promoción (repartidor)</strong>
-          <div id="share-canvas" class="share-img">No hay imagen aún</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="row">
+<div class="col">
+<h2>Iniciar sesión</h2>
+<label>Correo</label>
+<input id="login-email" placeholder="correo@ejemplo.com">
+<label>Contraseña</label>
+<div class="account-field">
+<input id="login-pass" type="password" placeholder="Contraseña">
+<button type="button" id="toggle-login-pass" class="btn">👁</button>
+</div>
+<div style="margin-top:10px">
+<button id="btn-login" class="btn success">Entrar</button>
+<button id="btn-admin-open" class="btn primary">Panel Admin</button>
+</div>
+<p class="small" style="margin-top:8px">¿No tienes cuenta? <button id="btn-show-register" class="btn" style="padding:4px 8px">Regístrate</button></p>
+<div id="login-msg" class="small muted"></div>
+</div>
+<div class="col">
+<h2>Registro Cliente</h2>
+<label>Nombre completo</label><input id="r-name" placeholder="Nombre completo">
+<div class="row"><div class="col"><label>Edad</label><input id="r-age" type="number" placeholder="Edad"></div><div class="col"><label>Teléfono</label><input id="r-phone" placeholder="55XXXXXXXX"></div></div>
+<label>Correo</label><input id="r-email" placeholder="correo@ejemplo.com">
+<label>Contraseña</label><input id="r-pass" type="password" placeholder="Contraseña">
+<label>Estado</label>
+<select id="r-state"><option value="Coyote">Coyote</option><option value="Tepo">Tepo</option><option value="Huehuetoca">Huehuetoca</option></select>
+<label>Código postal</label><input id="r-zip" placeholder="Código postal">
+<label>Ciudad</label><input id="r-city" readonly placeholder="Se autocompleta">
+<label>Dirección principal</label><textarea id="r-address" rows="2" placeholder="Calle, número, colonia"></textarea>
+<label>Foto de perfil</label><input id="r-photo" type="file" accept="image/*">
+<div style="margin-top:8px"><button id="btn-register" class="btn success">Crear cuenta (Simulado)</button></div>
+<div class="small muted" style="margin-top:8px">Puedes agregar más direcciones después y cambiar la principal. Pagos simulados.</div>
+</div>
+</div>
 </div>
 
 <!-- APP VIEWS -->
 <div id="app" class="hidden">
-  <div class="card menu-grid">
-    <div>
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div>
-          <div class="pill" id="badge-user">--</div>
-          <h2 id="welcome-user">Hola</h2>
-        </div>
-        <div style="display:flex;gap:8px">
-          <button id="btn-logout" class="btn warn">Cerrar sesión</button>
-          <button id="btn-open-orders" class="btn primary">Hacer pedido</button>
-        </div>
-      </div>
-
-      <div id="client-area" class="card card-scroll" style="margin-top:12px">
-        <h3>Hacer pedido (Simulado)</h3>
-        <label>Descripción del encargo</label><input id="o-desc" placeholder="Ej: 2 tortas de jamón, 1 litro de leche">
-        <div class="row"><div class="col"><label>Estado (zona)</label><select id="o-state"><option value="Coyote">Coyote</option><option value="Tepo">Tepo</option><option value="Huehuetoca">Huehuetoca</option></select></div>
-        <div class="col"><label>Método de pago</label><select id="o-pay"><option value="efectivo">Efectivo</option><option value="tarjeta">Tarjeta (simulado)</option><option value="spei">SPEI (simulado)</option></select></div></div>
-        <label>Dirección de entrega</label><textarea id="o-address" rows="2"></textarea>
-        <div style="margin-top:8px"><button id="btn-create-order" class="btn success">Confirmar pedido (Simulado)</button></div>
-        <div id="order-msg" class="small muted" style="margin-top:8px"></div>
-
-        <hr>
-        <h3>Ganancias simuladas</h3>
-        <div class="small muted">
-          <p>Ganancia diaria: <strong id="profit-daily">$0</strong></p>
-          <p>Ganancia semanal: <strong id="profit-weekly">$0</strong></p>
-          <p>Costo para reinversión: <strong id="profit-reinvest">$0</strong></p>
-        </div>
-      </div>
-
-      <div id="track-area" class="card card-scroll hidden" style="margin-top:12px">
-        <h3>Rastrear pedido</h3>
-        <label>ID de pedido</label><input id="track-id" placeholder="RX-1001">
-        <div style="margin-top:8px"><button id="btn-track" class="btn primary">Ver estado</button></div>
-        <div id="track-view" style="margin-top:10px"></div>
-      </div>
-    </div>
-
-    <div>
-      <div id="repartidor-panel" class="card card-scroll">
-        <h3>Panel Repartidor</h3>
-        <div class="small muted">Disponible: <label style="display:inline-block;margin-left:6px"><input type="checkbox" id="d-online"> Online</label></div>
-        <label>Tarifa de envío ($MXN)</label><input id="d-fee" type="number" value="25">
-        <div style="margin-top:8px" class="small muted">KPI: <span id="kpi-today">0</span> pedidos hoy · En curso: <span id="kpi-live">0</span></div>
-        <hr>
-        <h4>Pedidos asignados</h4>
-        <div id="orders-list"></div>
-      </div>
-
-      <div id="loans-panel" class="card" style="margin-top:12px">
-        <h3>Solicitudes de préstamo</h3>
-        <div id="loan-list"></div>
-      </div>
-    </div>
-  </div>
+<div class="card menu-grid">
+<div>
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div>
+<div class="pill" id="badge-user">--</div>
+<h2 id="welcome-user">Hola</h2>
+</div>
+<div style="display:flex;gap:8px">
+<button id="btn-logout" class="btn warn">Cerrar sesión</button>
+<button id="btn-open-orders" class="btn primary">Hacer pedido</button>
+</div>
 </div>
 
-<!-- ADMIN PANEL (oculto hasta doble-pass) -->
+<div id="client-area" class="card card-scroll" style="margin-top:12px">
+<h3>Hacer pedido (Simulado)</h3>
+<label>Descripción del encargo</label><input id="o-desc" placeholder="Ej: 2 tortas de jamón, 1 litro de leche">
+<div class="row"><div class="col"><label>Estado (zona)</label><select id="o-state"><option value="Coyote">Coyote</option><option value="Tepo">Tepo</option><option value="Huehuetoca">Huehuetoca</option></select></div>
+<div class="col"><label>Método de pago</label><select id="o-pay"><option value="efectivo">Efectivo</option><option value="tarjeta">Tarjeta (simulado)</option><option value="spei">SPEI (simulado)</option></select></div></div>
+<label>Dirección de entrega</label><textarea id="o-address" rows="2"></textarea>
+<div style="margin-top:8px"><button id="btn-create-order" class="btn success">Confirmar pedido (Simulado)</button></div>
+<div id="order-msg" class="small muted" style="margin-top:8px"></div>
+</div>
+</div>
+
+<div>
+<div id="repartidor-panel" class="card card-scroll">
+<h3>Panel Repartidor</h3>
+<div class="small muted">Disponible: <label style="display:inline-block;margin-left:6px"><input type="checkbox" id="d-online"> Online</label></div>
+<label>Tarifa de envío ($MXN)</label><input id="d-fee" type="number" value="25">
+<div style="margin-top:8px" class="small muted">KPI: <span id="kpi-today">0</span> pedidos hoy · En curso: <span id="kpi-live">0</span></div>
+<hr>
+<h4>Pedidos asignados</h4>
+<div id="orders-list"></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ADMIN PANEL -->
 <div id="admin-panel" class="card hidden">
-  <h2>Panel Administrador</h2>
-  <div class="row">
-    <div class="col">
-      <h4>Solicitudes de préstamo</h4>
-      <div id="admin-loans" class="card-scroll"></div>
-    </div>
-    <div class="col">
-      <h4>Repartidores</h4>
-      <div id="admin-repartidores" class="card-scroll"></div>
-    </div>
-  </div>
-  <div style="margin-top:10px"><button id="btn-admin-logout" class="btn warn">Salir admin</button></div>
+<h2>Panel Administrador</h2>
+<div class="row">
+<div class="col">
+<h4>Solicitudes de préstamo</h4>
+<div id="admin-loans" class="card-scroll"></div>
+</div>
+<div class="col">
+<h4>Repartidores</h4>
+<div id="admin-repartidores" class="card-scroll"></div>
+</div>
+</div>
+<div style="margin-top:10px"><button id="btn-admin-logout" class="btn warn">Salir admin</button></div>
 </div>
 
 </div>
 
 <script>
-const ADMIN_PASS1='Z8fR3kLp9vJ6Qx2Ty7sHmW0aD1uG4B';
-const ADMIN_PASS2='X5qV7nM2rC9tY8wK1jL0pF6zS3bH4A';
-const $ = (s, ctx=document)=>ctx.querySelector(s);
-const $$ = (s, ctx=document)=>Array.from((ctx||document).querySelectorAll(s));
+// ===== CONFIG =====
+const ADMIN_PASS1 = 'demo1';
+const ADMIN_PASS2 = 'demo2';
+const $ = (s, ctx=document) => ctx.querySelector(s);
+const $$ = (s, ctx=document) => Array.from((ctx||document).querySelectorAll(s));
 const toast = txt => { const t=document.createElement('div'); t.textContent=txt; t.style.cssText='position:fixed;left:50%;top:20px;transform:translateX(-50%);background:#061322;border:1px solid rgba(255,255,255,.06);padding:10px 14px;border-radius:10px;z-index:9999'; document.body.appendChild(t); setTimeout(()=>t.remove(),1800); };
 function uid(){ const n=Number(localStorage.getItem('rx_next')||1000)+1; localStorage.setItem('rx_next',n); return 'RX-'+n; }
-const money=n=>Number(n).toLocaleString('es-MX',{style:'currency',currency:'MXN'});
+const money = n => Number(n).toLocaleString('es-MX',{style:'currency',currency:'MXN'});
 
+// ===== LocalStorage helpers =====
 function loadUsers(){ return JSON.parse(localStorage.getItem('rx_users')||'[]'); }
-function saveUsers(u){ localStorage.setItem('rx_users',JSON.stringify(u)); }
+function saveUsers(u){ localStorage.setItem('rx_users', JSON.stringify(u)); }
 function loadReps(){ return JSON.parse(localStorage.getItem('rx_reps')||'[]'); }
-function saveReps(r){ localStorage.setItem('rx_reps',JSON.stringify(r)); }
+function saveReps(r){ localStorage.setItem('rx_reps', JSON.stringify(r)); }
 function loadOrders(){ return JSON.parse(localStorage.getItem('rx_orders')||'[]'); }
-function saveOrders(o){ localStorage.setItem('rx_orders',JSON.stringify(o)); }
-function loadLoans(){ return JSON.parse(localStorage.getItem('rx_loans')||'[]'); }
-function saveLoans(l){ localStorage.setItem('rx_loans',JSON.stringify(l)); }
+function saveOrders(o){ localStorage.setItem('rx_orders', JSON.stringify(o)); }
+function saveSession(user){ localStorage.setItem('rx_current', JSON.stringify(user)); }
+function loadSession(){ return JSON.parse(localStorage.getItem('rx_current')||'null'); }
+function clearSession(){ localStorage.removeItem('rx_current'); }
 
+// ===== Seed demo siempre =====
 (function seed(){
-  const users=loadUsers();
+  let users = loadUsers();
   if(!users.find(u=>u.email==='cliente1@demo')){
     users.push({name:'Cliente Demo',age:30,email:'cliente1@demo',pass:'1234',phone:'5550001111',state:'Coyote',zip:'55700',city:'Coyote',address:'Calle Demo 1',addresses:['Calle Demo 1']});
   }
   saveUsers(users);
-  const reps=loadReps();
-  if(!reps.find(r=>r.email==='repartidor1@demo')){
+
+  let reps = loadReps();
+  if(!reps.find(r=>r.name==='Repartidor Demo')){
     reps.push({name:'Repartidor Demo',phone:'5550002222',vehicle:'Moto 125',bank:'CLABE-XXXX',zones:['Coyote'],products:['Comida'],subscribed:true,shareLink:'https://demo.repartosexpress.com/pedido/repartidor1'});
   }
   saveReps(reps);
 })();
 
-function saveSession(user){ localStorage.setItem('rx_current',JSON.stringify(user)); }
-function loadSession(){ return JSON.parse(localStorage.getItem('rx_current')||'null'); }
-function clearSession(){ localStorage.removeItem('rx_current'); }
-
-// UI auth
-$('#btn-show-register').addEventListener('click',()=>{document.querySelector('#view-auth').scrollIntoView({behavior:'smooth'});});
-$('#btn-register').addEventListener('click',()=>{
-  const name=$('#r-name').value.trim(),age=$('#r-age').value.trim(),email=$('#r-email').value.trim(),pass=$('#r-pass').value.trim(),phone=$('#r-phone').value.trim(),state=$('#r-state').value,zip=$('#r-zip').value.trim(),city=$('#r-city').value.trim(),address=$('#r-address').value.trim();
-  if(!name||!age||!email||!pass||!phone||!state||!zip||!city||!address){toast('Completa todos los campos');return;}
-  let users=loadUsers();if(users.some(u=>u.email===email)){toast('Correo ya registrado');return;}
+// ===== Login/Register =====
+$('#btn-show-register').addEventListener('click', ()=>{ $('#view-auth').scrollIntoView({behavior:'smooth'}); });
+$('#btn-register').addEventListener('click', ()=>{
+  const name=$('#r-name').value.trim(), age=$('#r-age').value.trim(), email=$('#r-email').value.trim(), pass=$('#r-pass').value.trim(), phone=$('#r-phone').value.trim(), state=$('#r-state').value, zip=$('#r-zip').value.trim(), city=$('#r-city').value.trim(), address=$('#r-address').value.trim();
+  if(!name||!age||!email||!pass||!phone||!state||!zip||!city||!address){ toast('Completa todos los campos'); return; }
+  let users = loadUsers(); if(users.some(u=>u.email===email)){ toast('Correo ya registrado'); return; }
   users.push({name,age,email,pass,phone,state,zip,city,address,addresses:[address]}); saveUsers(users); toast('Cuenta creada (simulada)');
-  $('#login-email').value=email; $('#login-pass').value=pass; setTimeout(()=>$('#btn-login').click(),600);
+  $('#login-email').value = email; $('#login-pass').value = pass; setTimeout(()=>$('#btn-login').click(),600);
 });
-$('#r-zip').addEventListener('input',()=>{ const zip=$('#r-zip').value.trim(); if(zip==='55700') $('#r-city').value='Coyote'; if(zip==='55710') $('#r-city').value='Tepo'; if(zip==='55720') $('#r-city').value='Huehuetoca'; });
+$('#r-zip').addEventListener('input', ()=>{
+  const zip=$('#r-zip').value.trim();
+  if(zip==='55700') $('#r-city').value='Coyote';
+  if(zip==='55710') $('#r-city').value='Tepo';
+  if(zip==='55720') $('#r-city').value='Huehuetoca';
+});
 
-$('#btn-login').addEventListener('click',()=>{
-  const email=$('#login-email').value.trim(),pass=$('#login-pass').value.trim();
-  const users=loadUsers();const u=users.find(x=>x.email===email && x.pass===pass);
+$('#btn-login').addEventListener('click', ()=>{
+  const email=$('#login-email').value.trim(), pass=$('#login-pass').value.trim();
+  const users=loadUsers(); const u=users.find(x=>x.email===email && x.pass===pass);
   if(u){ saveSession({type:'user',email:u.email,name:u.name}); enterApp(u); toast('Bienvenido '+u.name); }
-  else{ toast('Correo o contraseña incorrectos (usa cliente1@demo / 1234 para probar)'); }
+  else{ toast('Correo o contraseña incorrectos (usa cliente1@demo / 1234)'); }
 });
-$('#toggle-login-pass').addEventListener('click',()=>{const f=$('#login-pass');f.type=f.type==='password'?'text':'password';});
+$('#toggle-login-pass').addEventListener('click', ()=>{ const f=$('#login-pass'); f.type=f.type==='password'?'text':'password'; });
 
-$('#btn-register-delivery').addEventListener('click',()=>{
-  const name=$('#d-name').value.trim(), phone=$('#d-phone').value.trim(), vehicle=$('#d-vehicle').value.trim(), zones=$('#d-zones').value.trim(), bank=$('#d-bank').value.trim(), products=$('#d-products').value.trim();
-  if(!name||!phone||!vehicle||!zones||!bank){toast('Completa los campos del repartidor');return;}
-  let reps=loadReps(); const email='rep-'+Date.now()+'@demo';
-  const rep={name,phone,vehicle,bank,zones:zones.split(',').map(s=>s.trim()),products:products?products.split(',').map(s=>s.trim()):[],subscribed:true,shareLink:`https://demo.repartosexpress.com/p/${encodeURIComponent(name.replace(/\s+/g,'-').toLowerCase())}`};
-  reps.push(rep); saveReps(reps); toast('Repartidor registrado (suscripción simulada)'); generateShareImage(rep); renderAdminReps();
-});
-$('#toggle-owner').addEventListener('click',()=>{const f=$('#owner-account');f.type=f.type==='password'?'text':'password';});
-
+// ===== App =====
 function enterApp(user){
   $('#view-auth').classList.add('hidden'); $('#app').classList.remove('hidden');
-  $('#welcome-user').textContent='Hola, '+(user.name||user.email); $('#badge-user').textContent=user.email||'usuario';
-  renderRepartidorOrders(); renderLoans(); updateKPIs(); updateProfits();
+  $('#welcome-user').textContent = 'Hola, ' + (user.name||user.email);
+  $('#badge-user').textContent = user.email || 'usuario';
+  renderRepartidorOrders(); updateKPIs();
 }
-$('#btn-logout').addEventListener('click',()=>{clearSession(); location.reload();});
+$('#btn-logout').addEventListener('click', ()=>{ clearSession(); location.reload(); });
 
-$('#btn-create-order').addEventListener('click',()=>{
-  const desc=$('#o-desc').value.trim(),state=$('#o-state').value,pay=$('#o-pay').value,addr=$('#o-address').value.trim();
-  if(!desc||!state||!addr){toast('Completa descripción, zona y dirección');return;}
-  const id=uid(); const verification=Math.random().toString(36).slice(2,8).toUpperCase();
-  const orders=loadOrders();
-  const order={id,desc,state,pay,addr,cliente:loadSession()?.email||'anon',fecha:new Date().toISOString().slice(0,10),estado:'pendiente',verification,costos:{subtotal:desc.length*5,envio:Number($('#d-fee').value||25),total:0}};
-  order.costos.total=order.costos.subtotal+order.costos.envio;
-  const reps=loadReps(); const candidates=reps.filter(r=>r.zones?.includes(state));
-  order.assigned=candidates.length>0?candidates[0].name:null;
-  orders.unshift(order); saveOrders(orders); toast('Pedido creado: '+id+' (simulado)'); $('#order-msg').textContent=`ID: ${id} · Código entrega: ${verification}`;
-  renderRepartidorOrders(); updateKPIs(); updateProfits();
+// ===== Pedidos =====
+$('#btn-create-order').addEventListener('click', ()=>{
+  const desc=$('#o-desc').value.trim(), state=$('#o-state').value, pay=$('#o-pay').value, addr=$('#o-address').value.trim();
+  if(!desc||!state||!addr){ toast('Completa descripción, zona y dirección'); return; }
+  const id = uid(); const verification = Math.random().toString(36).slice(2,8).toUpperCase();
+  const order = {id,desc,state,pay,addr,cliente: loadSession()?.email || 'anon',fecha:new Date().toISOString().slice(0,10),estado:'pendiente',verification,costos:{subtotal:0,envio: Number($('#d-fee').value||25),total:0}};
+  const reps = loadReps(); const candidates = reps.filter(r=> r.zones?.includes(state));
+  if(candidates.length>0){ order.assigned = candidates[0].name; } else { order.assigned = null; }
+  const orders = loadOrders(); orders.unshift(order); saveOrders(orders); toast('Pedido creado: '+id+' (simulado)');
+  renderRepartidorOrders(); updateKPIs();
 });
 
-function renderRepartidorOrders(){
-  const list=$('#orders-list'); list.innerHTML=''; const orders=loadOrders();
-  if(orders.length===0){ list.innerHTML='<div class="muted">No hay pedidos</div>'; return;}
-  orders.forEach(o=>{
-    const el=document.createElement('div'); el.className='card'; el.style.marginBottom='8px';
-    el.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center">
-      <div><strong>${o.id}</strong> <span class='small muted'>${o.fecha}</span><div class='muted'>${o.desc}</div></div>
-      <div style='text-align:right'>
-        <div class='small'>Asignado: ${o.assigned||'—'}</div>
-        <div style='margin-top:6px'>
-          <button class='btn accept'>Aceptar</button>
-          <button class='btn action'>En camino</button>
-          <button class='btn done'>Entregado</button>
-        </div>
-      </div>
-    </div>`;
-    el.querySelector('.accept').addEventListener('click',()=>{ updateOrderState(o.id,'aceptado'); renderRepartidorOrders(); renderTrackIfOpen(o.id); updateKPIs(); updateProfits(); });
-    el.querySelector('.action').addEventListener('click',()=>{ updateOrderState(o.id,'camino'); renderRepartidorOrders(); renderTrackIfOpen(o.id); updateKPIs(); });
-    el.querySelector('.done').addEventListener('click',()=>{ updateOrderState(o.id,'entregado'); renderRepartidorOrders(); renderTrackIfOpen(o.id); updateKPIs(); updateProfits(); });
-    list.appendChild(el);
+function renderRepartidorOrders(){ const list = $('#orders-list'); list.innerHTML=''; const orders = loadOrders();
+if(orders.length===0){ list.innerHTML='<div class="muted">No hay pedidos</div>'; return; }
+orders.forEach(o=>{
+  const el=document.createElement('div'); el.className='card'; el.style.marginBottom='8px';
+  el.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center"><div><strong>${o.id}</strong> <span class='small muted'>${o.fecha}</span><div class='muted'>${o.desc}</div></div><div style='text-align:right'><div class='small'>Asignado: ${o.assigned||'—'}</div><div style='margin-top:6px'><button class='btn accept'>Aceptar</button> <button class='btn action'>En camino</button> <button class='btn done'>Entregado</button></div></div></div>`;
+  el.querySelector('.accept').addEventListener('click', ()=>{ updateOrderState(o.id,'aceptado'); renderRepartidorOrders(); updateKPIs(); });
+  el.querySelector('.action').addEventListener('click', ()=>{ updateOrderState(o.id,'camino'); renderRepartidorOrders(); updateKPIs(); });
+  el.querySelector('.done').addEventListener('click', ()=>{ updateOrderState(o.id,'entregado'); renderRepartidorOrders(); updateKPIs(); });
+  list.appendChild(el);
+});
+
+function updateOrderState(id,estado){ const orders = loadOrders(); const idx = orders.findIndex(o=>o.id===id); if(idx<0) return; orders[idx].estado=estado; saveOrders(orders); }
+
+function updateKPIs(){ const orders = loadOrders(); const today = new Date().toISOString().slice(0,10);
+$('#kpi-today').textContent = orders.filter(o=>o.fecha===today).length;
+$('#kpi-live').textContent = orders.filter(o=>['aceptado','camino'].includes(o.estado)).length;
+}
+
+// ===== ADMIN =====
+$('#btn-admin-open').addEventListener('click', ()=>{
+  const pass = prompt('Ingresa clave demo admin'); if(pass===ADMIN_PASS1||pass===ADMIN_PASS2){ $('#admin-panel').classList.remove('hidden'); $('#view-auth').classList.add('hidden'); renderAdmin(); } else toast('Clave incorrecta'); });
+$('#btn-admin-logout').addEventListener('click', ()=>{ $('#admin-panel').classList.add('hidden'); location.reload(); });
+function renderAdmin(){
+  const loans = $('#admin-loans'); loans.innerHTML='<div class="muted">No hay solicitudes reales (simulado)</div>';
+  const repsDiv = $('#admin-repartidores'); repsDiv.innerHTML='';
+  const reps = loadReps(); reps.forEach(r=>{
+    const el=document.createElement('div'); el.className='card'; el.style.marginBottom='6px';
+    el.innerHTML = `<strong>${r.name}</strong><div class='muted'>${r.phone} · Vehículo: ${r.vehicle}</div><div><button class='btn success' onclick="alert('Simulado: ver detalles de ${r.name}')">Ver detalles</button></div>`;
+    repsDiv.appendChild(el);
   });
 }
 
-function updateOrderState(id,estado){
-  const orders=loadOrders(); const idx=orders.findIndex(o=>o.id===id); if(idx<0)return;
-  orders[idx].estado=estado; saveOrders(orders);
-}
-
-$('#btn-track').addEventListener('click',()=>{
-  const id=$('#track-id').value.trim(); const o=loadOrders().find(x=>x.id===id); const v=$('#track-view');
-  if(!o){ v.innerHTML='<div class="muted">No encontrado</div>'; return;}
-  v.innerHTML=`<div class='card'>Pedido ${o.id}<br>Estado: <strong>${o.estado}</strong><br>Asignado: ${o.assigned||'—'}<br>Cliente: ${o.cliente}</div>`;
+// ===== INIT =====
+window.addEventListener('load', ()=>{
+  const session = loadSession();
+  if(session) enterApp(session);
 });
-function renderTrackIfOpen(id){ if($('#track-id').value.trim()===id) $('#btn-track').click(); }
-
-function updateKPIs(){
-  const orders=loadOrders(); const today=new Date().toISOString().slice(0,10);
-  $('#kpi-today').textContent=orders.filter(o=>o.fecha===today).length;
-  $('#kpi-live').textContent=orders.filter(o=>o.estado==='camino').length;
-}
-
-// ===== GANANCIAS SIMULADAS =====
-function updateProfits(){
-  const orders=loadOrders();
-  const today=new Date().toISOString().slice(0,10);
-  const daily=orders.filter(o=>o.fecha===today && o.estado==='entregado').reduce((sum,o)=>sum+o.costos.total,0);
-  const weekOrders=orders.filter(o=>{
-    const d=new Date(o.fecha); const diff=(new Date()-d)/(1000*60*60*24); return diff<=7 && o.estado==='entregado';
-  });
-  const weekly=weekOrders.reduce((sum,o)=>sum+o.costos.total,0);
-  $('#profit-daily').textContent=money(daily);
-  $('#profit-weekly').textContent=money(weekly);
-  $('#profit-reinvest').textContent=money(weekly*0.3);
-}
-
-// GENERAR IMAGEN SIMULADA
-function generateShareImage(rep){ const div=$('#share-canvas'); div.textContent=`Enlace de reparto demo:\n${rep.shareLink}`; }
-
-// RENDER PRÉSTAMOS
-function renderLoans(){
-  const loans=loadLoans(); const panel=$('#loan-list'); panel.innerHTML='';
-  loans.forEach(l=>{ const d=document.createElement('div'); d.className='card small'; d.textContent=`${l.id} · ${l.monto} · Estado: ${l.estado}`; panel.appendChild(d); });
-}
-
-// ADMIN
-$('#btn-admin-open').addEventListener('click',()=>{
-  const pass=prompt('Ingrese contraseña doble (simulación)');
-  if(pass===ADMIN_PASS1+ADMIN_PASS2){ $('#admin-panel').classList.remove('hidden'); toast('Bienvenido admin'); renderAdminReps(); } 
-  else{ toast('Contraseña incorrecta'); }
-});
-$('#btn-admin-logout').addEventListener('click',()=>{$('#admin-panel').classList.add('hidden');});
-
-function renderAdminReps(){
-  const reps=loadReps(); const panel=$('#admin-repartidores'); panel.innerHTML='';
-  reps.forEach(r=>{ const d=document.createElement('div'); d.className='card small'; d.textContent=`${r.name} · ${r.phone} · Zonas: ${r.zones.join(', ')}`; panel.appendChild(d); });
-}
 </script>
 </body>
 </html>
