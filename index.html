@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Repartos Express – Demo (Funcional)</title>
+  <title>Repartos Express – Demo Funcional</title>
   <style>
     :root{--bg:#0f172a;--panel:#111827;--muted:#94a3b8;--accent:#22c55e;--accent-2:#60a5fa;--danger:#ef4444;--text:#e5e7eb;--card:#0b1220;--shadow:0 10px 25px rgba(0,0,0,.25);--radius:14px}
     *{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial; background:linear-gradient(180deg,#071127 0%, #051023 100%);color:var(--text);display:flex;flex-direction:column}
@@ -80,25 +80,49 @@
         </div>
       </div>
 
-      <!-- Restante del HTML sin cambios ... -->
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,.03);margin:12px 0">
 
-  </div>
+      <div>
+        <h3>Registro Repartidor (Suscripción $10 simulado)</h3>
+        <div class="row">
+          <div class="col">
+            <label>Nombre repartidor</label><input id="d-name" placeholder="Nombre repartidor">
+            <label>Teléfono</label><input id="d-phone" placeholder="55XXXXXXXX">
+            <label>Vehículo</label><input id="d-vehicle" placeholder="Moto / Auto - Modelo">
+            <label>Zonas (separa por comas)</label><input id="d-zones" placeholder="Coyote, Tepo">
+            <label>Cuenta para cobrar (CLABE/tarjeta)</label><input id="d-bank" placeholder="CLABE o tarjeta">
+            <label>Productos que reparte</label><input id="d-products" placeholder="Comida, Paquetes">
+            <div style="margin-top:10px"><button id="btn-register-delivery" class="btn primary">Simular pago $10 y Registrar repartidor</button></div>
+          </div>
+          <div class="col">
+            <div class="card notice">
+              <strong>Términos - Suscripción (demo)</strong>
+              <p class="small muted">Al simular la suscripción aceptas los términos. En producción deberás firmar contrato real que deslinde responsabilidades (accidentes, pagos). Esta demo no procesa dinero real.</p>
+            </div>
+            <div style="margin-top:10px">
+              <strong>Cuenta visible (propietario)</strong>
+              <div class="account-field" style="margin-top:6px">
+                <input id="owner-account" type="password" value="5579100283327458" readonly>
+                <button id="toggle-owner" class="btn">👁</button>
+              </div>
+              <p class="small muted">Presiona el ojo para mostrar la cuenta y compartirla con quien deba pagar.</p>
+            </div>
+            <div style="margin-top:12px">
+              <strong>Imagen de promoción (repartidor)</strong>
+              <div id="share-canvas" class="share-img">No hay imagen aún</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <script>
-    // ====== UTILIDADES YA EXISTENTES ======
-    const $ = (s, ctx=document) => ctx.querySelector(s);
-    const $$ = (s, ctx=document) => Array.from((ctx||document).querySelectorAll(s));
-    const toast = txt => { const t = document.createElement('div'); t.textContent=txt; t.style.cssText='position:fixed;left:50%;top:20px;transform:translateX(-50%);background:#061322;border:1px solid rgba(255,255,255,.06);padding:10px 14px;border-radius:10px;z-index:9999'; document.body.appendChild(t); setTimeout(()=>t.remove(),1800); };
-
-    // ====== TOGGLE LOGIN PASSWORD ======
-    $('#toggle-login-pass').addEventListener('click', ()=>{
-      const f = $('#login-pass');
-      f.type = f.type === 'password' ? 'text' : 'password';
-    });
-
-    // ====== Resto de tus scripts existentes ======
-    // (login, registro, repartidores, órdenes, admin, etc.)
-    // No hace falta cambiar nada más, solo se agregó el toggle
-  </script>
-</body>
-</html>
+    <!-- APP VIEWS -->
+    <div id="app" class="hidden">
+      <div class="card menu-grid">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div class="pill" id="badge-user">--</div>
+              <h2 id="welcome-user">Hola</h2>
+            </div>
+            <div style="display:flex;
