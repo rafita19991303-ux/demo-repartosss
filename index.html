@@ -1,85 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Repartos Express – Demo Offline</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba Plataforma</title>
   <style>
-    :root{--bg:#0f172a; --panel:#111827; --muted:#94a3b8; --accent:#22c55e; --accent-2:#60a5fa; --danger:#ef4444; --warning:#f59e0b; --text:#e5e7eb; --card:#0b1220; --shadow: 0 10px 25px rgba(0,0,0,.25); --radius: 18px;}
-    *{box-sizing:border-box} html,body{height:100%} body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial; background: radial-gradient(1200px 600px at 20% -10%, #1f2937 0, #0b1020 40%, #05070e 100%); color:var(--text); display:flex; flex-direction:column;}
-    header{position:sticky; top:0; z-index:10; backdrop-filter: blur(6px); background: rgba(3,6,14,.6); border-bottom:1px solid rgba(255,255,255,.06);}
-    .wrap{max-width:1080px; margin:0 auto; padding: 16px;}
-    .brand{display:flex; align-items:center; gap:12px} .logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--accent),#16a34a); display:grid; place-items:center; font-weight:900; color:#052e16; box-shadow:var(--shadow)}
-    .brand h1{font-size:1.25rem; margin:0} .subtitle{color:var(--muted); font-size:.9rem}
-    main{flex:1} .grid{display:grid; gap:16px} @media(min-width:900px){ .grid-2{grid-template-columns: 1.3fr .7fr} .grid-3{grid-template-columns: repeat(3,1fr)} }
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), transparent 30%); border:1px solid rgba(255,255,255,.09); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
-    h2,h3{margin:0 0 6px 0} .muted{color:var(--muted); font-size:.95rem}
-    input, textarea, select{width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0a0f1e; color:#e5e7eb; outline:none} label{font-size:.9rem; color:var(--muted)}
-    .hidden{display:none}
-    .btn{cursor:pointer; border:none; border-radius:10px; padding:8px 12px; background:#0b1220; color:#e2e8f0; border:1px solid rgba(255,255,255,.08); margin-top:8px} .btn:hover{filter:brightness(1.1)} .btn.success{background:linear-gradient(135deg,var(--accent),#16a34a); color:#052e16; font-weight:800} .btn.primary{background:linear-gradient(135deg,var(--accent-2),#2563eb); color:#051329; font-weight:800} .btn.warn{background:linear-gradient(135deg,var(--warning),#d97706); color:#3b1803; font-weight:800}
-    .account-field{display:flex; align-items:center; gap:8px;}
-    .share-img{border:1px dashed var(--muted); border-radius:12px; padding:8px; text-align:center; margin-top:8px;}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      display: block;
+      width: 90%;
+      padding: 10px;
+      margin: 10px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+    .menu {
+      display: none;
+    }
+    .menu button {
+      width: 100%;
+      margin: 5px 0;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="brand">
-        <div class="logo">RX</div>
-        <div>
-          <h1>Repartos Express — Demo</h1>
-          <div class="subtitle">Pide desde cualquier dispositivo · Demo Online Simulada</div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <div class="container" id="login">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" id="username" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Entrar</button>
+    <p class="error" id="error"></p>
+  </div>
 
-  <main class="wrap">
-    <section id="tab-login" class="card">
-      <h2>Bienvenido</h2>
-      <p class="muted">Ingresa o regístrate para probar la plataforma.</p>
-      <div id="login-form" class="grid">
-        <label>Correo electrónico</label><input id="u-email" placeholder="usuario@correo.com" />
-        <label>Contraseña</label><input id="u-pass" type="password" placeholder="Contraseña" />
-        <button id="btn-login" class="btn success block">Iniciar sesión</button>
-        <button id="btn-show-register" class="btn primary block">Registrarse</button>
-        <button id="btn-show-delivery-register" class="btn warn block">Registrarse como repartidor</button>
-      </div>
-
-      <div id="register-form" class="grid hidden">
-        <label>Nombre completo</label><input id="r-name" placeholder="Nombre completo" />
-        <label>Edad</label><input id="r-age" type="number" placeholder="Edad" />
-        <label>Correo electrónico</label><input id="r-email" placeholder="usuario@correo.com" />
-        <label>Contraseña</label><input id="r-pass" type="password" placeholder="Contraseña" />
-        <label>Número de celular</label><input id="r-phone" placeholder="55XXXXXXX" />
-        <label>Estado</label><select id="r-state"><option value="Coyote">Coyote</option><option value="Tepo">Tepo</option><option value="Huehuetoca">Huehuetoca</option></select>
-        <label>Código postal</label><input id="r-zip" placeholder="Código postal" />
-        <label>Ciudad</label><input id="r-city" readonly placeholder="Se llenará automáticamente" />
-        <label>Dirección principal</label><textarea id="r-address" rows="2" placeholder="Calle, número, colonia, referencias"></textarea>
-        <label>Foto de perfil</label><input id="r-photo" type="file" accept="image/*" />
-        <small>Puedes agregar más direcciones o cambiar la principal en el futuro. Una vez realizado el pago, no hay devoluciones.</small>
-        <div class="card">
-          <h4>Suscripción Repartidor - $10 (Simulado)</h4>
-          <p class="muted">Para registrarte como repartidor debes simular el pago de $10 y aceptar los términos y condiciones.</p>
-          <textarea readonly rows="6">Términos y condiciones simulados: Esta es una demo. Al registrarte como repartidor, aceptas que la plataforma es de prueba y no se realizan pagos reales. No nos hacemos responsables de accidentes ni transacciones. Esta simulación es solo para testing.</textarea>
-        </div>
-        <button id="btn-register" class="btn success block">Simular $10 y crear cuenta</button>
-        <button id="btn-show-login" class="btn warn block">Volver a login</button>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap" style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap">
-      <div><small>© <span id="year"></span> Repartos Express (Demo).</small></div>
-      <div><small>Demo seguro y legal, pagos simulados.</small></div>
-    </div>
-  </footer>
+  <div class="container menu" id="menu">
+    <h2>Menú Principal</h2>
+    <button onclick="alert('Registro de usuario próximamente')">Registro de Usuario</button>
+    <button onclick="alert('Registro de repartidor próximamente')">Registro de Repartidor</button>
+    <button onclick="alert('Préstamos personales próximamente')">Préstamos Personales</button>
+    <button onclick="cerrarSesion()">Cerrar Sesión</button>
+  </div>
 
   <script>
-    const $ = (sel, ctx=document) => ctx.querySelector(sel);
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Aquí puedes agregar lógica para mostrar/ocultar formularios y simular pagos sin que se realicen transacciones reales
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const errorMsg = document.getElementById("error");
+
+      if(user === "rafa" && pass === "123") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("menu").style.display = "block";
+        errorMsg.textContent = "";
+      } else {
+        errorMsg.textContent = "Usuario o contraseña incorrectos";
+      }
+    }
+
+    function cerrarSesion() {
+      document.getElementById("menu").style.display = "none";
+      document.getElementById("login").style.display = "block";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+    }
   </script>
 </body>
 </html>
